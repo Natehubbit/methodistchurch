@@ -183,7 +183,6 @@ const styles = StyleSheet.create({
     color: Colors.red500
   },
   footer: {
-    // marginTop: 25,
     marginBottom: 15
   }
 })
