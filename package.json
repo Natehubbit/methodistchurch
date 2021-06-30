@@ -1,14 +1,21 @@
 {
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.13.0",
     "expo": "~41.0.0",
+    "expo-splash-screen": "~0.10.2",
+    "expo-status-bar": "~1.0.4",
+    "expo-updates": "~0.5.4",
     "firebase": "8.2.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
+    "react-native": "~0.63.4",
+    "react-native-gesture-handler": "~1.10.2",
     "react-native-paper": "^4.7.2",
+    "react-native-reanimated": "~2.1.0",
     "react-native-screens": "~2.15.0",
     "react-native-svg": "12.1.0",
     "react-native-svg-transformer": "^0.14.3",
+    "react-native-unimodules": "~0.13.3",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
@@ -26,14 +33,16 @@
     "typescript": "~4.0.0"
   },
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "web": "expo start --web",
     "eject": "expo eject",
     "prettier": "prettier --write .",
     "lint": "npx eslint . --ext ts,tsx",
     "lint:fix": "npx eslint . --fix --ext ts,tsx"
   },
-  "private": true
+  "private": true,
+  "name": "church",
+  "version": "1.0.0"
 }

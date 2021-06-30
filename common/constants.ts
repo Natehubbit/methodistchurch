@@ -26,6 +26,20 @@ export const FORM = {
       '60+',
     ],
   },
+  Category: {
+    type: 'list',
+    values: [
+      'Chapel',
+      'Manse',
+      'Bus',
+      'Bible Class',
+      'Bulletin',
+      'Chapel Reconstruction',
+      'Thanksgiving/Harvest',
+      'Welfare',
+      'Edufund',
+    ],
+  },
   Suggestion: {
     type: 'text',
     values: null,
