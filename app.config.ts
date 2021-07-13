@@ -4,10 +4,24 @@ export default ({
   config,
 }: ConfigContext): Partial<ExpoConfig> => ({
   ...config,
-  name: 'GraceMethodist-mobile',
+  name: 'Grace Methodist Church',
+  slug: 'grace-church-app',
+  icon: './assets/images/iconIOS.png',
+  version: '1.0.2',
+  ios: {
+    requireFullScreen: true,
+  },
+  splash: {
+    image: './assets/images/splash.png',
+    resizeMode: 'cover',
+    backgroundColor: '#ffffff',
+  },
   android: {
-    splash: {
-      // image: './assets/images/splash.png',
+    package: 'com.natehubbit.gracemethodist',
+    icon: './assets/images/iconAndroid.png',
+    versionCode: 3,
+    adaptiveIcon: {
+      foregroundImage: './assets/images/iconAndroid.png',
     },
   },
 })

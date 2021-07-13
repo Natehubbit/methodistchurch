@@ -13,6 +13,7 @@ import OptionsContext from './contexts/OptionsContext'
 import {OptionsType} from './types'
 import AuthService from './services/AuthService'
 import UtilService from './services/UtilService'
+import * as ScreenOrientation from 'expo-screen-orientation'
 
 const App = () => {
   const [appReady, setAppReady] = useState(false)
@@ -23,18 +24,16 @@ const App = () => {
   useEffect(() => {
     const prepare = async () => {
       await SplashScreen.preventAutoHideAsync()
+      await ScreenOrientation.lockAsync(
+        ScreenOrientation.OrientationLock.PORTRAIT,
+      )
       const uid = await UtilService.getData('uid')
       const authed = !uid && (await AuthService.loginAnon())
-      if (authed) {
+      if (authed || uid) {
         const data = await OptionsService.loadAll()
-        await OptionsService.populateOptions()
         data && setOptions(data)
         setAppReady(true)
       }
-      // AuthService.authListen(setAppReady)
-      // const data = await OptionsService.loadAll()
-      // await OptionsService.populateOptions()
-      // data && setOptions(data)
       setAppReady(true)
     }
     prepare()

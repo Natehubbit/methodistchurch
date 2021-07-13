@@ -1,23 +1,24 @@
-import React, {FC, Fragment, useRef, useState} from 'react'
-import {Alert, StyleSheet, Text, View} from 'react-native'
+import React, {
+  FC,
+  useContext,
+  useRef,
+  useState,
+} from 'react'
+import {StyleSheet, View} from 'react-native'
 import {
   Button,
   Colors,
   Headline,
   Paragraph,
-  Subheading,
   Surface,
   TextInput,
-  Title,
 } from 'react-native-paper'
 import {FORM} from '../../common/constants'
+import OptionsContext from '../../contexts/OptionsContext'
+import SuggestionService from '../../services/SuggestionService'
+import {ActionType, IForm, SnackbarType} from '../../types'
 import Selector from '../Selector'
 import TextArea from '../TextArea'
-import {MaterialCommunityIcons as Icon} from '@expo/vector-icons'
-import {ActionType, IForm, SnackbarType} from '../../types'
-import SuggestionService from '../../services/SuggestionService'
-import {useContext} from 'react'
-import OptionsContext from '../../contexts/OptionsContext'
 
 interface FormProps {
   onCloseAlert: () => void

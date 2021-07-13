@@ -6,9 +6,11 @@ const SuggestionRef = db.collection('suggestion')
 
 export default class SuggestionService {
   static async postData(data: IForm) {
-    console.log('submittion')
     try {
-      await SuggestionRef.add(data)
+      await SuggestionRef.add({
+        ...data,
+        timestamp: new Date(),
+      })
       return true
     } catch (e) {
       Alert.alert(e.message)

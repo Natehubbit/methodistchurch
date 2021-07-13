@@ -1,11 +1,13 @@
 {
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.0",
+    "@types/firebase": "^3.2.1",
     "expo": "~41.0.0",
+    "expo-screen-orientation": "~3.1.0",
     "expo-splash-screen": "~0.10.2",
     "expo-status-bar": "~1.0.4",
     "expo-updates": "~0.5.4",
-    "firebase": "8.2.3",
+    "firebase": "^8.6.8",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.4",
