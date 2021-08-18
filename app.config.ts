@@ -19,7 +19,7 @@ export default ({
   android: {
     package: 'com.natehubbit.gracemethodist',
     icon: './assets/images/iconAndroid.png',
-    versionCode: 3,
+    versionCode: 4,
     adaptiveIcon: {
       foregroundImage: './assets/images/iconAndroid.png',
     },
