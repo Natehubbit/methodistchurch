@@ -1,39 +1,51 @@
-import React, { FC, useState } from 'react'
-import { Keyboard, StyleSheet, Text, View } from 'react-native'
-import { Menu, TouchableRipple } from 'react-native-paper'
-import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
-import { theme } from '../../common/theme';
-import { IForm } from '../../types';
+import React, {FC, useState} from 'react'
+import {
+  Keyboard,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
+import {Menu, TouchableRipple} from 'react-native-paper'
+import {MaterialCommunityIcons as Icon} from '@expo/vector-icons'
+import {theme} from '../../common/theme'
+import {IForm} from '../../types'
 
 interface ISelector {
-  values: readonly string[];
-  value: string;
-  placeholder: string;
-  name: keyof IForm;
-  onChange: (key: keyof IForm, val: string) => void;
+  values: readonly string[]
+  value: string
+  placeholder: string
+  name: keyof IForm
+  onChange: (key: keyof IForm, val: string) => void
 }
 
 interface IButton {
-  placeholder: string;
-  value: string;
-  onPress: () => void;
+  placeholder: string
+  value: string
+  onPress: () => void
 }
 
 const Button: FC<IButton> = ({
   placeholder,
   value,
-  onPress
+  onPress,
 }) => {
   return (
-    <TouchableRipple rippleColor={theme.colors.primary} style={[styles.container]} onPress={onPress}>
+    <TouchableRipple
+      rippleColor={theme.colors.primary}
+      style={[styles.container]}
+      onPress={onPress}>
       <>
-        {!!!value
-          ? <Text numberOfLines={1} style={[styles.placeholder]}>
+        {!!!value ? (
+          <Text
+            numberOfLines={1}
+            style={[styles.placeholder]}>
             {placeholder}
           </Text>
-          : <Text numberOfLines={1} style={[styles.value]}>
+        ) : (
+          <Text numberOfLines={1} style={[styles.value]}>
             {value}
-          </Text>}
+          </Text>
+        )}
         <Icon name='chevron-down' color='grey' size={24} />
       </>
     </TouchableRipple>
@@ -45,14 +57,14 @@ const Selector: FC<ISelector> = ({
   values,
   value,
   name,
-  onChange
+  onChange,
 }) => {
   const [show, setShow] = useState(false)
   const onClose = () => {
     setShow(false)
   }
   const onPress = () => {
-    setShow(s => !s)
+    setShow((s) => !s)
   }
   const onSelect = (key: keyof IForm, v: string) => {
     // setInputVal(v)
@@ -65,13 +77,22 @@ const Selector: FC<ISelector> = ({
       contentStyle={[styles.menuContent]}
       visible={show}
       onDismiss={onClose}
-      anchor={<Button value={value} onPress={onPress} placeholder={placeholder} />}>
-      <View style={{ flex: 1 }}>
-        {values.map(v => {
-          return <Menu.Item
-            key={v}
-            onPress={() => onSelect(name, v)}
-            title={v} />
+      anchor={
+        <Button
+          value={value}
+          onPress={onPress}
+          placeholder={placeholder}
+        />
+      }>
+      <View style={{flex: 1}}>
+        {values.map((v) => {
+          return (
+            <Menu.Item
+              key={v}
+              onPress={() => onSelect(name, v)}
+              title={v}
+            />
+          )
         })}
       </View>
     </Menu>
@@ -89,17 +110,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.5)'
+    borderColor: 'rgba(0,0,0,0.5)',
   },
   placeholder: {
-    color: 'rgba(0,0,0,0.6)'
+    color: 'rgba(0,0,0,0.6)',
   },
-  menu: {
-  },
-  menuContent: {
-  },
+  menu: {},
+  menuContent: {},
   value: {
     color: '#000',
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 })

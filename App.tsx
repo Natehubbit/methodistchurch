@@ -8,12 +8,12 @@ import {Provider as PaperProvider} from 'react-native-paper'
 import * as SplashScreen from 'expo-splash-screen'
 import {theme} from './common/theme'
 import OptionsService from './services/OptionsService'
-import Suggestion from './screens/Suggestion'
 import OptionsContext from './contexts/OptionsContext'
 import {OptionsType} from './types'
 import AuthService from './services/AuthService'
 import UtilService from './services/UtilService'
 import * as ScreenOrientation from 'expo-screen-orientation'
+import Navigation from './navigation'
 
 const App = () => {
   const [appReady, setAppReady] = useState(false)
@@ -53,7 +53,7 @@ const App = () => {
         onLayout={onLayoutRootView}>
         <PaperProvider theme={theme}>
           <StatusBar />
-          <Suggestion />
+          <Navigation />
         </PaperProvider>
       </View>
     </OptionsContext.Provider>

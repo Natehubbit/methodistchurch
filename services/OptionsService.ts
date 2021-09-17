@@ -11,7 +11,7 @@ export default class OptionsService {
     string[] | null
   > {
     try {
-      const res = await OrgsRef.get()
+      const res = await OrgsRef.orderBy('name', 'asc').get()
       return (<unknown>(
         res.docs.map((d) => d.data().name)
       )) as string[]
@@ -23,7 +23,10 @@ export default class OptionsService {
 
   static async loadCategories() {
     try {
-      const res = await CategoryRef.get()
+      const res = await CategoryRef.orderBy(
+        'name',
+        'asc',
+      ).get()
       return res.docs.map(
         (d) => (<unknown>d.data().name) as string,
       )

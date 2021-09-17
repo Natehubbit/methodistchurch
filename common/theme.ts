@@ -9,3 +9,13 @@ export const theme: Theme = {
     accent: '#0A53A2',
   },
 }
+
+export const COLORS = {
+  white: '#fff',
+  green: 'green',
+  border: 'rgba(0, 0,0,0.2)',
+  lightText: 'rgba(0,0,0,0.5)',
+  brown: 'brown',
+  red: 'red',
+  blue: 'blue',
+}
