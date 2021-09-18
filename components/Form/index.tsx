@@ -63,7 +63,7 @@ const Form: FC<FormProps> = ({onAlert, onCloseAlert}) => {
     onAlert('success', {
       action: 'Okay',
       onPress: onCloseAlert,
-      text: 'Suggestion submitted',
+      text: 'Thanks and God bless you',
     })
   }
   const onFail = () => {
@@ -116,9 +116,9 @@ const Form: FC<FormProps> = ({onAlert, onCloseAlert}) => {
   return (
     <Surface style={styles.container}>
       <View style={styles.info}>
-        <Headline>Hello,</Headline>
+        <Headline>Dearly Beloved,</Headline>
         <Paragraph>
-          What suggestion do you have for us today?
+          What is your kind suggestion for today?
         </Paragraph>
       </View>
       {Object.keys(FORM).map((k) => {
