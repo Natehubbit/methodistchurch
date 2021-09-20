@@ -3,7 +3,12 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import {StatusBar, StyleSheet, View} from 'react-native'
+import {
+  Platform,
+  StatusBar,
+  StyleSheet,
+  View,
+} from 'react-native'
 import {Provider as PaperProvider} from 'react-native-paper'
 import * as SplashScreen from 'expo-splash-screen'
 import {theme} from './common/theme'
@@ -24,9 +29,11 @@ const App = () => {
   useEffect(() => {
     const prepare = async () => {
       await SplashScreen.preventAutoHideAsync()
-      await ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.PORTRAIT,
-      )
+      if (Platform.OS === 'android') {
+        await ScreenOrientation.lockAsync(
+          ScreenOrientation.OrientationLock.PORTRAIT,
+        )
+      }
       const uid = await UtilService.getData('uid')
       const authed = !uid && (await AuthService.loginAnon())
       if (authed || uid) {
